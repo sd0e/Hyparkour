@@ -3,7 +3,7 @@ function toS(milliseconds) {
     return seconds.toFixed(3);
 }
 
-var k = "M2Y5ODcwNjctNDlmZS00YjEzLWExYzEtMDBmYTJiNTVmZTgz";
+var k = "VmtaU1MxZHJOVlpQVlZaYVRUSlNVRmxYTVU5TlJsSnlWVzVPYVZadVFsVlVWVkpEVjIxR2NsWnFXbFZTYlZKSFdsVmFjMDVzU2xsVmF6VlRVbFZ3TUZZeFdsTlRNa1pXVGxaV1YySlVSbWhXYTJSclRtYw";
 
 function difference(record, best) {
     let difference = best - record;
@@ -23,7 +23,7 @@ async function submit(mcUsername) {
     let uuid = headData.id;
     let head = `https://mc-heads.net/head/` + uuid + `.png`;
     $('.playerImage').attr('src', head);
-    const hypixelURL = `https://api.hypixel.net/player?key=` + atob(k) + `&name=` + mcUsername;
+    const hypixelURL = `https://api.hypixel.net/player?key=` + atob(atob(atob(atob(atob(k))))) + `&name=` + mcUsername;
     const hypixelfetchResult = fetch(hypixelURL)
     const hypixelresponse = await hypixelfetchResult;
     const hypixelData = await hypixelresponse.json();
