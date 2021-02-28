@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hyparkour</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="script.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#dcbe34">
+        <meta name="msapplication-TileColor" content="#00a300">
+        <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    <body>
+        <header>
+            <img src="logo.png" alt="Logo" class="logo"/>
+            <span class="title">Hyparkour</span>
+        </header>
+        <main>
+            <h1>Welcome to Hyparkour</h1>
+            <h2>Enter a username to see parkour records.</h2>
+            <input type="text" class="usernameInput" placeholder="Enter username" spellcheck="false"><br>
+            <a class="button" href="javascript:submit($('.usernameInput').val());">Submit</a>
+            <div class="records" style="display: none;">
+                <h2>Parkour Records</h2><br>
+                <div class="info">
+                    <img alt="Player Head" class="playerImage" id="playerImage" src="loading.gif"/>
+                    <span class="playerName">Loading...</span><br>
+                </div>
+                <span class="notFound" style="display: none;">Sorry, we couldn't find any parkour records for this player.</span>
+                <div class="lobbies"></div>
+            </div>
+        </main>
+    </body>
+</html>

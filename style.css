@@ -1,0 +1,181 @@
+html {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0rem 1rem;
+    height: 3.5rem;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.title {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    line-height: 3.5rem;
+    vertical-align: middle;
+}
+
+.logo {
+    height: 2rem;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+main {
+    padding: 2rem;
+}
+
+h1 {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+.usernameInput {
+    padding: 1rem;
+    border-radius: 1rem;
+    border: none;
+    font-size: 1.2rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+.usernameInput:focus {
+    outline: none;
+}
+
+.button {
+    text-decoration: none;
+    color: white;
+    background-color: #ff0000;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: none;
+    display: inline-block;
+    margin-top: 1rem;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.button:hover {
+    background-color: #e40000;
+    transition: 0.2s ease-in-out;
+}
+
+.records {
+    margin-top: 2rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    border-radius: 1rem;
+    padding: 1rem;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.info {
+    height: 5rem;
+    line-height: 5rem;
+    vertical-align: middle;
+    margin-bottom: 3rem;
+}
+
+.playerImage {
+    height: 5rem;
+    border-radius: 0.5rem;
+    vertical-align: middle;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 0.5rem;
+}
+
+.playerName {
+    line-height: 5rem;
+    vertical-align: middle;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-left: 1.2rem;
+    color: #74ac35;
+    margin-bottom: 4rem;
+    display: inline;
+}
+
+.notFound {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.lobby {
+    background-color: black;
+    background-blend-mode: screen;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.lobbyIcon {
+    height: 2.5rem;
+    line-height: 2.5rem;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.lobbyName {
+    line-height: 2.5rem;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+}
+
+.lobbyInfoContainer {
+    line-height: 2.5rem;
+    vertical-align: middle;
+    margin-bottom: 0.7rem;
+}
+
+.stat {
+    font-weight: bold;
+}
+
+.statContainer {
+    margin-top: 0.7rem;
+    display: inline-block;
+}
+
+.attribution {
+    display: inline-block;
+    margin-top: 1.5rem;
+}
+
+a.link {
+    color: white;
+}
