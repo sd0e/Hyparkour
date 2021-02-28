@@ -9,17 +9,45 @@ body {
     margin: 0;
     border: 0;
     padding: 0;
+    padding-top: 3rem;
     background-color: rgba(0, 0, 0, 0.85);
     
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.9);
     padding: 0rem 1rem;
     height: 3.5rem;
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    line-height: 3.5rem;
+    vertical-align: middle;
+}
+
+.rightToggle {
+    float: right;
+    display: inline-block;
+    line-height: 3.5rem;
+    vertical-align: middle;
+    margin-right: 2.5rem;
+}
+
+.rightToggleIcon {
+    float: right;
+    display: inline-block;
+    line-height: 3.5rem;
+    vertical-align: middle;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+.rightToggleIcon:hover {
+    color: #cacaca;
+    transition: 0.2s ease-in-out;
 }
 
 .title {
@@ -177,5 +205,17 @@ h2 {
 }
 
 a.link {
+    color: white;
+}
+
+.hidden {
+    text-decoration: none;
+}
+
+h3 {
+    color: white;
+}
+
+.statContainer {
     color: white;
 }
