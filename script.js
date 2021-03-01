@@ -10,7 +10,7 @@ function getId(url){
 }
 
 function watchVideo(videoId) {
-    $('#video').attr('src', 'https://www.youtube.com/embed/' + videoId);
+    $('#video').attr('src', 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&origin=https://sebastiandoe5.github.io/Hyparkour');
     $('.videoContainer').fadeIn();
 }
 
@@ -33,6 +33,7 @@ async function submit(mcUsername) {
     const headfetchResult = fetch(headURL)
     const headresponse = await headfetchResult;
     const headData = await headresponse.json();
+    console.log(headData);
     let uuid = headData.id;
     let head = `https://mc-heads.net/head/` + uuid + `.png`;
     $('.playerImage').attr('src', head);
@@ -64,6 +65,8 @@ async function submit(mcUsername) {
                 Object.keys(runs).forEach(function(key2) {
                     let otherDataSpeedruns = runs[key2];
                     let runId = getId(otherDataSpeedruns.runs[0].run.videos.links[0].uri);
+                    let runInfo = otherDataSpeedruns.runs[0].run;
+                    console.log(runInfo);
                     if (otherDataSpeedruns.level == speedrunLevel) {
                         let recordTime = otherDataSpeedruns.runs[0].run.times.primary_t;
                         // Do general parkour info here
@@ -123,7 +126,8 @@ async function submit(mcUsername) {
             $(".problem").show();
             $(".records").fadeIn();
         } else {
-            $('.playerName').text(mcUsername.charAt(0).toUpperCase() + mcUsername.slice(1));
+            let fallbackName = headData.name;
+            $('.playerName').text(fallbackName);
             $(".unknown").show();
             $(".records").fadeIn();
         }

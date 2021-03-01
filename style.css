@@ -221,7 +221,7 @@ a.link {
 }
 
 .hidden {
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 h3 {
