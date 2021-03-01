@@ -52,6 +52,7 @@ async function submit(mcUsername) {
                 let speedrunLevel = otherData.speedrunLevel;
                 Object.keys(runs).forEach(function(key2) {
                     let otherDataSpeedruns = runs[key2];
+                    let runVideo = otherDataSpeedruns.runs[0].run.videos.links[0].uri;
                     if (otherDataSpeedruns.level == speedrunLevel) {
                         let recordTime = otherDataSpeedruns.runs[0].run.times.primary_t;
                         // Do general parkour info here
@@ -81,7 +82,7 @@ async function submit(mcUsername) {
                                 <span class="statContainer">The run(s) took an average of <span class="averageTime stat">` + toS(averageTime) + `s</span> to complete.</span><br>
                                 <span class="statContainer">Their fastest run of <span class="fastestRun stat">` + toS(bestTime) + `s</span> was <span class="runDifference stat">` + difference(recordTime, toS(bestTime)) + `s</span> slower than the record of <span class="recordRun stat">` + recordTime + `s</span>.</span><br><br>
                                 <div class="checkpoints ` + name + `"></div>
-                                <small class="attribution">World record data courtesy of <a class="link" href="https://www.speedrun.com/mcm_hsp" target="_blank">speedrun.com</a></small>
+                                <small class="attribution"><a class="link" href="` + runVideo + `" target="_blank">Watch the record's video</a> - <a class="link" href="https://www.speedrun.com/mcm_hsp/` + name + `" target="_blank">View this lobby's records on speedrun.com</a></small>
                             </div>
                                 `);
                                 }
