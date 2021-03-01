@@ -3,6 +3,17 @@ function toS(milliseconds) {
     return seconds.toFixed(3);
 }
 
+function getId(url){
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    var match = url.match(regExp);
+    return (match&&match[7].length==11)? match[7] : false;
+}
+
+function watchVideo(videoId) {
+    $('#video').attr('src', 'https://www.youtube.com/embed/' + videoId);
+    $('.videoContainer').fadeIn();
+}
+
 var k = "4f91e38f-8979-47bb-afbf-78f98c93af58";
 
 function difference(record, best) {
@@ -52,7 +63,7 @@ async function submit(mcUsername) {
                 let speedrunLevel = otherData.speedrunLevel;
                 Object.keys(runs).forEach(function(key2) {
                     let otherDataSpeedruns = runs[key2];
-                    let runVideo = otherDataSpeedruns.runs[0].run.videos.links[0].uri;
+                    let runId = getId(otherDataSpeedruns.runs[0].run.videos.links[0].uri);
                     if (otherDataSpeedruns.level == speedrunLevel) {
                         let recordTime = otherDataSpeedruns.runs[0].run.times.primary_t;
                         // Do general parkour info here
@@ -82,7 +93,7 @@ async function submit(mcUsername) {
                                 <span class="statContainer">The run(s) took an average of <span class="averageTime stat">` + toS(averageTime) + `s</span> to complete.</span><br>
                                 <span class="statContainer">Their fastest run of <span class="fastestRun stat">` + toS(bestTime) + `s</span> was <span class="runDifference stat">` + difference(recordTime, toS(bestTime)) + `s</span> slower than the record of <span class="recordRun stat">` + recordTime + `s</span>.</span><br><br>
                                 <div class="checkpoints ` + name + `"></div>
-                                <small class="attribution"><a class="link" href="` + runVideo + `" target="_blank">Watch the record's video</a> - <a class="link" href="https://www.speedrun.com/mcm_hsp/` + name + `" target="_blank">View this lobby's records on speedrun.com</a></small>
+                                <small class="attribution"><a class="link" onclick="watchVideo('` + runId + `');" target="_blank">Watch a video of the record</a> - <a class="link" href="https://www.speedrun.com/mcm_hsp/` + name + `" target="_blank">View this lobby's records on speedrun.com</a></small>
                             </div>
                                 `);
                                 }
