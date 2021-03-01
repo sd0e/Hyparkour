@@ -15,6 +15,7 @@ async function submit(mcUsername) {
     $('.playerImage').attr('src', 'loading.gif');
     $('.notFound').hide();
     $('.unknown').hide();
+    $('.problem').hide();
     $('.playerName').text('Loading...');
     $('.lobbies').html('');
     const headURL = `https://mc-heads.net/minecraft/profile/` + mcUsername;
@@ -28,12 +29,10 @@ async function submit(mcUsername) {
     const hypixelfetchResult = fetch(hypixelURL)
     const hypixelresponse = await hypixelfetchResult;
     const hypixelData = await hypixelresponse.json();
-    console.log(hypixelData);
     if (hypixelData.player != null) {
         let parkour = hypixelData.player.parkourCompletions;
         let parkourCheckpoints = hypixelData.player.parkourCheckpointBests;
         $('.playerName').text(hypixelData.player.displayname);
-        console.log(parkour);
         if (parkour == undefined) {
             $('.notFound').show();
         } else {
@@ -107,8 +106,14 @@ async function submit(mcUsername) {
         }
         $(".records").fadeIn();
     } else {
-        $('.playerName').text(mcUsername.charAt(0).toUpperCase() + mcUsername.slice(1));
-        $(".unknown").show();
-        $(".records").fadeIn();
+        if (hypixelData.success == false) {
+            $('.playerName').text(mcUsername.charAt(0).toUpperCase() + mcUsername.slice(1));
+            $(".problem").show();
+            $(".records").fadeIn();
+        } else {
+            $('.playerName').text(mcUsername.charAt(0).toUpperCase() + mcUsername.slice(1));
+            $(".unknown").show();
+            $(".records").fadeIn();
+        }
     }
 }
