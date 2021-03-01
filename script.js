@@ -3,7 +3,7 @@ function toS(milliseconds) {
     return seconds.toFixed(3);
 }
 
-var k = "VmtaU1MxZHJOVlpQVlZaYVRUSlNVRmxYTVU5TlJsSnlWVzVPYVZadVFsVlVWVkpEVjIxR2NsWnFXbFZTYlZKSFdsVmFjMDVzU2xsVmF6VlRVbFZ3TUZZeFdsTlRNa1pXVGxaV1YySlVSbWhXYTJSclRtYw";
+var k = "4f91e38f-8979-47bb-afbf-78f98c93af58";
 
 function difference(record, best) {
     let difference = best - record;
@@ -24,14 +24,16 @@ async function submit(mcUsername) {
     let uuid = headData.id;
     let head = `https://mc-heads.net/head/` + uuid + `.png`;
     $('.playerImage').attr('src', head);
-    const hypixelURL = `https://api.hypixel.net/player?key=` + atob(atob(atob(atob(atob(k))))) + `&name=` + mcUsername;
+    const hypixelURL = `https://api.hypixel.net/player?key=` + k + `&name=` + mcUsername;
     const hypixelfetchResult = fetch(hypixelURL)
     const hypixelresponse = await hypixelfetchResult;
     const hypixelData = await hypixelresponse.json();
+    console.log(hypixelData);
     if (hypixelData.player != null) {
         let parkour = hypixelData.player.parkourCompletions;
         let parkourCheckpoints = hypixelData.player.parkourCheckpointBests;
         $('.playerName').text(hypixelData.player.displayname);
+        console.log(parkour);
         if (parkour == undefined) {
             $('.notFound').show();
         } else {
