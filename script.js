@@ -22,7 +22,7 @@ function watchVideo(videoId) {
     $('.videoContainer').fadeIn();
 }
 
-var k = "4f91e38f-8979-47bb-afbf-78f98c93af58";
+var k = "6f26ca52-687d-4157-b856-0d8743465574";
 
 function difference(record, best) {
     let difference = best - record;
