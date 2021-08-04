@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 function toS(milliseconds) {
     let seconds = milliseconds / 1000;
     return seconds.toFixed(3);
@@ -30,13 +28,14 @@ function difference(record, best) {
 }
 
 async function submit(mcUsername) {
-    const k = process.env.AUTH_TOKEN;
+    const k = $('#apiKeyInput').val();
     if (k != '') {
         console.log("Hyparkour - See Hypixel parkour records");
         $('.playerImage').attr('src', 'loading.gif');
         $('.notFound').hide();
         $('.unknown').hide();
         $('.problem').hide();
+        $('.tooFrequent').hide();
         $('.playerName').text('Loading...');
         $('.lobbies').html('');
         const headURL = `https://mc-heads.net/minecraft/profile/` + mcUsername;
@@ -65,7 +64,8 @@ async function submit(mcUsername) {
                 const speedrunsresponse = await speedrunsfetchResult;
                 const speedrunsjsonData = await speedrunsresponse.json();
                 runs = speedrunsjsonData.data;
-                Object.keys(jsonData).forEach(function(key) {
+                Object.keys(jsonData).forEach(function (key) {
+                    $('body').css('background-image', 'none');
                     let name = key;
                     let otherData = jsonData[key];
                     let displayName = otherData.displayName;
@@ -131,13 +131,17 @@ async function submit(mcUsername) {
         } else {
             if (hypixelData.success == false) {
                 $('.playerName').text(mcUsername.charAt(0).toUpperCase() + mcUsername.slice(1));
-                $(".problem").show();
-                $(".records").fadeIn();
+                if (hypixelData.cause === 'You have already looked up this name recently') {
+                    $('.tooFrequent').show();
+                } else {
+                    $('.problem').show();
+                }
+                $('.records').fadeIn();
             } else {
                 let fallbackName = headData.name;
                 $('.playerName').text(fallbackName);
-                $(".unknown").show();
-                $(".records").fadeIn();
+                $('.unknown').show();
+                $('.records').fadeIn();
             }
         }
     }

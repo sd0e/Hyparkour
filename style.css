@@ -75,7 +75,7 @@ h2 {
     color: white;
 }
 
-.usernameInput {
+.input {
     padding: 1rem;
     border-radius: 1rem;
     border: none;
@@ -89,7 +89,7 @@ h2 {
     font-family: 'Lexend Deca', sans-serif;
 }
 
-.usernameInput:focus {
+.input:focus {
     outline: none;
 }
 

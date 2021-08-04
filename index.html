@@ -6,8 +6,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
-        <script src="jquery.js"></script>
-        <script src="script.js"></script>
+        <script src="jquery.js" defer></script>
+        <script src="script.js" defer></script>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -28,7 +28,7 @@
         gtag('config', 'G-PY98YYMB6D');
         </script>
     </head>
-    <body>
+    <body style="background-image: url('./backgrounds/BedWars.png');">
         <div class="videoContainer" style="display: none;" onclick="$('.videoContainer').fadeOut();">
             <iframe class="video" id="video"></iframe>
         </div>
@@ -40,8 +40,11 @@
         <main>
             <h1>Welcome to Hyparkour</h1>
             <h2>Enter a username to see parkour records.</h2>
-            <input type="text" class="usernameInput" placeholder="Enter username" spellcheck="false">
-            <a class="button" href="javascript:submit($('.usernameInput').val());">Submit</a><br>
+            <input type="text" class="input" id="usernameInput" placeholder="Enter username" spellcheck="false"/>
+            <input type="text" class="input" id="apiKeyInput" placeholder="API Key" spellcheck="false" style="margin-left: 1rem;"/>
+            <a class="button" href="javascript:submit($('#usernameInput').val());">Submit</a><br><br>
+            <span style="color: white;">We now require a Hypixel API key. You can obtain one by running /api new in the lobby.</span><br><br>
+            <span style="color: white;">If you are hesitant about providing us with your API key, feel free to browse through <a href="https://github.com/sebastiandoe5/Hyparkour" target="_blank" style="color: white;">the source code</a>.</span><br><br>
             <div class="records" style="display: none;">
                 <h2>Parkour Records</h2><br>
                 <div class="info">
@@ -50,7 +53,8 @@
                 </div>
                 <span class="notFound" style="display: none;">This player has logged into the Hypixel network but hasn't completed any parkours.</span>
                 <span class="unknown" style="display: none;">This player has never logged into the Hypixel network.</span>
-                <span class="problem" style="display: none;">We're sorry, there has been a problem on our end. Try again in a few minutes.</span>
+                <span class="tooFrequent" style="display: none;">You have been looking up this player too frequently. Please wait a couple of minutes before trying again.</span>
+                <span class="problem" style="display: none;">We're sorry, there has been a problem. Check your API key.</span>
                 <div class="lobbies"></div>
             </div>
         </main>
