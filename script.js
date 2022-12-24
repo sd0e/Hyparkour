@@ -18,7 +18,7 @@ document.addEventListener("keydown", function(event) {
 });
 
 function watchVideo(videoId) {
-    $('#video').attr('src', 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&origin=https://sebastiandoe5.github.io/Hyparkour&modestbranding=1&rel=0&loop=1');
+    $('#video').attr('src', 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&origin=https://sd0e.github.io/Hyparkour&modestbranding=1&rel=0&loop=1');
     $('.videoContainer').fadeIn();
 }
 
